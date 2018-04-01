@@ -1,5 +1,2 @@
-#ctf-wp
-
-
-
+# ctf-wp
 CTF homework
