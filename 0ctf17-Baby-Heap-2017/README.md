@@ -1,5 +1,4 @@
 # 0ctf-2017 babyheap
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 ## checksec
 
 ```
@@ -10,7 +9,7 @@ Full RELRO      Canary found      NX enabled    PIE enabled     No RPATH   No RU
 
 ## reverse
 
-It is a standard, baby heap elf. We can malloc a content buffer and set the buffer's size through inputting 1，while we can set the size of inputs if we choose 2 to fill the buffer content. If malloc $x$ and input $y$ ($x < y$), the heap buffer will be overflowed.
+It is a standard, baby heap elf. We can malloc a content buffer and set the buffer's size through inputting 1，while we can set the size of inputs if we choose 2 to fill the buffer content. If malloc `x` and input `y,(x < y)`, the heap buffer will be overflowed.
 
 ```c
 struct MemItem
@@ -50,7 +49,7 @@ __int64 __fastcall Fill(MemItem *a1)
 
 ## exploit
 
-- Leak: If there are 3 adjacent chunks, we can change the size field of 2nd chunk by overflow 1st chunk. Then we dump 2nd chunk will dump the content of 3rd chunk too.If 3rd chunk is a small bins chunk and is free, we will get a add of $main\_arena+x$.
+- Leak: If there are 3 adjacent chunks, we can change the size field of 2nd chunk by overflow 1st chunk. Then we dump 2nd chunk will dump the content of 3rd chunk too.If 3rd chunk is a small bins chunk and is free, we will get a add of `main_arena+x`.
 - Exploit: fasten attack+one_gadget+malloc_hook.
 
 ```python
