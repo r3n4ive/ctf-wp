@@ -1,5 +1,5 @@
 # 0ctf-2017 babyheap
-
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 ## checksec
 
 ```
